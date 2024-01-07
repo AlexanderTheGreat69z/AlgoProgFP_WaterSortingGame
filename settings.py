@@ -6,6 +6,7 @@ pygame.mixer.init()
 WINDOW_SIZE         = (1080, 720)
 BACKGROUND_COLOR    = (0, 0, 50)
 START_SCENE         = 'main-menu'
+BUTTON_SIZE         = (100, 50)
 
 # Sounds
 BACKGROUND_MUSIC    = pygame.mixer.Sound(r'Water Game (PyGame)/assets/game_music.mp3')
