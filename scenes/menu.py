@@ -1,5 +1,5 @@
 import pygame
-from settings import BACKGROUND_COLOR, BACKGROUND_MUSIC
+from settings import BACKGROUND_COLOR, BACKGROUND_MUSIC, BUTTON_SIZE
 from colors import *
 from objects import Text, Button
 
@@ -17,16 +17,20 @@ class MainMenu:
         # Title text
         self.title = Text("SORTING WO'AH BO'OLS", 100)
         self.title.rect.center = self.surf_rect.center
+
+        # Button Attributes
+        self.button_size = BUTTON_SIZE
+        self.button_margin = 50
         
         # Play Button
-        self.play = Button((100, 50), 'PLAY')
+        self.play = Button(self.button_size, 'PLAY')
         self.play.rect.centerx = self.surf_rect.centerx
-        self.play.rect.top = self.title.rect.bottom + 50
+        self.play.rect.top = self.title.rect.bottom + self.button_margin
         
         # Quit Button
-        self.quit = Button((100, 50), 'QUIT')
+        self.quit = Button(self.button_size, 'QUIT')
         self.quit.rect.centerx = self.surf_rect.centerx
-        self.quit.rect.top = self.play.rect.bottom + 25
+        self.quit.rect.top = self.play.rect.bottom + self.button_margin
         
     # Game event handling
     def _event(self):
