@@ -171,7 +171,10 @@ class WaterGame:
         # Scan list elements from second last to first
         # If the element is equal to the last element (top of stack), append to list
         # Stop scan if not equal
-        for index in range(-2, -len(containerContent)-1, -1):
+        secondLast = -2
+        listLengthNeg = -len(containerContent)-1
+        step = -1
+        for index in range(secondLast, listLengthNeg, step):
             if containerContent[index].color == top_water.color:
                 sel_colors.append(containerContent[index].color)
             else: break
@@ -369,7 +372,7 @@ class WaterGame:
         
         # Update attributes relative to contianer number or game
         self.filled = self.containers - self.empty
-        self.container_space = (WINDOW_SIZE[0] - self.containers * CONTAINER_SIZE[0]) / (self.containers - 1)
+        self.container_space = (self.window_width - self.containers * self.container_width) / (self.containers - 1)
     
     # Scene execution
     def run(self):
