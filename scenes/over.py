@@ -1,6 +1,6 @@
 import pygame, sys
 from colors import *
-from settings import INCREASE_THRESHOLD, DEFAULT_RESETS
+from settings import INCREASE_THRESHOLD, DEFAULT_RESETS, BUTTON_SIZE
 from objects import Text, Button
 
 # Game Over scene
@@ -13,23 +13,28 @@ class GameOver:
         self.gsm            = main.gsm
         self.surf_rect      = self.surface.get_rect()
         self.bg_color       = DARKGREEN
-        
+
+        # Level counter
         self.level          = 1
         self.threshold      = INCREASE_THRESHOLD
+
+        # Button Attributes
+        self.button_size = BUTTON_SIZE
+        self.button_margin = 50
         
         # Title text
         self.title = Text("GGWP!", 100)
         self.title.rect.center = self.surf_rect.center
         
         # Play Button
-        self.play = Button((100, 50), 'NEXT')
+        self.play = Button(self.button_size, 'NEXT')
         self.play.rect.centerx = self.surf_rect.centerx
-        self.play.rect.top = self.title.rect.bottom + 50
+        self.play.rect.top = self.title.rect.bottom + self.button_margin
         
         # Quit Button
-        self.quit = Button((100, 50), 'QUIT')
+        self.quit = Button(self.button_size, 'QUIT')
         self.quit.rect.centerx = self.surf_rect.centerx
-        self.quit.rect.top = self.play.rect.bottom + 25
+        self.quit.rect.top = self.play.rect.bottom + self.button_margin
     
     # Draw the record of moves done in that level
     def _drawMovesRecord(self):
